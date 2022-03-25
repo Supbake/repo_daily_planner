@@ -25,8 +25,9 @@ $(function() { ///date and time
         inputArry[i].value = localStorage.getItem(`${i + 8}`);
     }
     const currentHour = moment().hours();
-    const timeOfDay = parseInt($(this).attr("id"));
+    
     $(".input-plans").each(function() {
+        const timeOfDay = parseInt($(this).attr("id"));
         if (timeOfDay === currentHour) {
             $(this).addClass("present");
             $(this).removeClass("future");
