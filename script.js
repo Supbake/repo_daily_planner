@@ -16,16 +16,32 @@ const eightPM = document.querySelector("#\\32 0");
 const inputArry = [eightAM, nineAM, tenAM, elevenAM, twelvePM, onePM, twoPM, threePM, fourPM, fivePM, sixPM, sevenPM, eightPM];
 
 $(function() { ///date and time 
-    console.log("this will run first");
     function displayDate() {
         $("#currentDay").html(moment().format("LLLL"));
        }
        setInterval(displayDate, 1000);
-    // eightAM.value = localStorage.getItem("8");
+       
     for (let i = 0; i < inputArry.length; i++) {
         inputArry[i].value = localStorage.getItem(`${i + 8}`);
     }
-    console.log(eightAM);
+    const currentHour = moment().hours();
+    const timeOfDay = parseInt($(this).attr("id"));
+    $(".input-plans").each(function() {
+        if (timeOfDay === currentHour) {
+            $(this).addClass("present");
+            $(this).removeClass("future");
+            $(this).removeClass("past"); 
+        } else if (timeOfDay > currentHour) {
+            $(this).addClass("future");
+            $(this).removeClass("present");
+            $(this).removeClass("past"); 
+        }else {
+            $(this).addClass("past");
+            $(this).removeClass("future");
+            $(this).removeClass("present"); 
+            $(this).prop("disabled", true);
+        }
+    })
 })
 
 $(".saveButton").click(function () {

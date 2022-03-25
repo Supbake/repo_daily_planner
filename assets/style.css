@@ -1,0 +1,30 @@
+div {
+  text-align: center;
+}
+
+.jumbotron {
+  text-align: center;
+}
+
+.present {
+  background-color: lightcoral;
+  color: black;
+}
+
+.past {
+  background-color: lightgrey;
+  color: black;
+}
+
+.future {
+  background-color: lightgreen;
+  color: black;
+}
+
+.hour {
+  border: solid black 1px;
+}
+
+.input-plans {
+  border: solid black 1px;
+}
